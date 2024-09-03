@@ -1,5 +1,5 @@
 site_name: IGP Platform
-base_url: https://iii-ei-stack.com/igp_manual
+base_url: https://iii-ei-stack.com/igp_manual/
 theme:
   name: material
 nav:
