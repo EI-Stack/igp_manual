@@ -6,7 +6,7 @@
 <video width="320"
 height="240" controls>
       <source
-src="./images/agentfabric_create_plan.mp4"
+src="https://github.com/EI-Stack/igp_manual/docs/images/agentfabric_create_plan.mp4"
 type="video/mp4">
 </video>
 
