@@ -1,5 +1,14 @@
 ## 架構師使用說明
 
+**影片範例**
+<!-- <video width="1280"
+height="696" controls>
+      <source
+src="./images/agentfabric_create_plan.gif"
+type="video/mp4">
+</video> -->
+![本地影片](./images/agentfabric_create_plan.gif "影片示例")
+
 ### 1.點選初始介面
 在初始介面（圖1）中，點選「架構師」。
 
