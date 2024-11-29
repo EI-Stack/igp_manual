@@ -146,3 +146,9 @@ dmypy.json
 # appendix
 /study
 study/
+
+#zip
+.zip
+*.zip
+*.7z
+.7z
