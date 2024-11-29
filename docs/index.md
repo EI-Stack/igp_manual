@@ -13,27 +13,6 @@ Agent Fabric 產品簡化了 Agent 開發流程，使使用者可以專注於業
 * **知識庫資料的安全與獨立性**：確保知識庫中的資料安全，提供數據加密和存取控制功能，並實現資料的獨立性，確保每個使用者的資料與其他使用者的資料隔離，防止資料洩露或未經授權的訪問。
 * **Agent 統一落地接口**：提供統一格式的 API 接口，方便使用者後續的開發工作。
 
-## 使用方法
-
-提供 RESTful API 接口進行工作室和其他服務串接：
-
-```python
-import requests
-import json
-
-url = "{host}/api/workspaces/app/{id}/chat-messages"  # id: 工作室 id
-
-payload = json.dumps({
-  "query": "今天天氣如何"
-})
-headers = {
-  'Content-Type': 'application/json'
-}
-
-response = requests.post(url, headers=headers, data=payload)
-
-print(response.text)
-```
 
 ## 文件說明
 
