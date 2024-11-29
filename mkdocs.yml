@@ -4,8 +4,12 @@ theme:
   name: material
 nav:
     - Home: index.md
+    - 架構師: arch.md
     - 知識庫: kdb.md
     - 工作室: wks.md
     - 工作室接入: wks_integrate.md
-    - 範例: examples.md
+    - 範例:
+        - 如何使用知識庫_長照法規 AGENT 的創建: examples_rag.md
+        - 如何使用語音轉文字功能_語音轉文字_會議記錄小幫手: example_record.md
+        - 如何創建讀取圖片的服務_營養師團隊: example_nutri.md
 
