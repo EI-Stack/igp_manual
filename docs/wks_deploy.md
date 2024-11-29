@@ -2,7 +2,6 @@
 
 
 提供 RESTful API 接口進行工作室和其他服務串接：
-# API KEY位置
 
 ---
 
