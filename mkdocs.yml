@@ -7,7 +7,7 @@ nav:
     - 架構師: arch.md
     - 知識庫: kdb.md
     - 工作室: wks.md
-    - 工作室接入: wks_deploy.md
+    - 工作室串接: wks_deploy.md
     - 範例:
         - 如何使用知識庫_長照法規 AGENT 的創建: examples_rag.md
         - 如何使用語音轉文字功能_語音轉文字_會議記錄小幫手: example_record.md
