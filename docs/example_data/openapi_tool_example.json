@@ -1,0 +1,129 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "時間轉換器",
+    "description": "時間轉換器將透過傳入的資料（時間數值、單位等等），將需要進行轉換的資料，轉換成指定的單位並且回傳（預設為毫秒）。",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://superiorapis-creator.cteam.com.tw"
+    }
+  ],
+  "paths": {
+    "/manager/feature/proxy/e975799c3585215abad6f673afe8445439/pub_93fa3a1a6150ec54a6745877c25700": {
+      "post": {
+        "operationId": "timeConverter",
+        "summary": "時間轉換",
+        "description": "時間轉換器將透過傳入的資料（時間數值與單位等等），將需要進行轉換的資料，轉換成指定的單位並且回傳（預設為毫秒）。需要進行轉換的單位 | day: 0, hour: 1, minute: 2, second: 3, millisecond: 4；",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "original": {
+                    "type": "object",
+                    "description": "轉換前的時間條件",
+                    "properties": {
+                      "unit": {
+                        "type": "string",
+                        "description": "需要進行轉換的單位 | day: 0, hour: 1, minute: 2, second: 3, millisecond: 4",
+                        "enum": ["0", "1", "2", "3", "4"]
+                      },
+                      "value": {
+                        "type": "number",
+                        "description": "需要進行轉換之數值"
+                      }
+                    },
+                    "required": ["unit", "value"]
+                  },
+                  "converted": {
+                    "type": "object",
+                    "description": "轉換後的時間條件(預設為毫秒)",
+                    "properties": {
+                      "unit": {
+                        "type": "string",
+                        "description": "轉換後的單位(預設為毫秒) | day: 0, hour: 1, minute: 2, second: 3, millisecond: 4",
+                        "enum": ["0", "1", "2", "3", "4"]
+                      }
+                    },
+                    "required": ["unit"]
+                  },
+                  "round": {
+                    "type": "integer",
+                    "description": "小數點位數"
+                  }
+                },
+                "required": ["original", "converted"]
+              },
+              "examples": {
+                "example1": {
+                  "value": {
+                    "original": {
+                      "unit": "1",
+                      "value": 1
+                    },
+                    "converted": {
+                      "unit": "3"
+                    },
+                    "round": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "轉換成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "unit": {
+                      "type": "string",
+                      "description": "轉換後單位"
+                    },
+                    "converted_value": {
+                      "type": "number",
+                      "description": "轉換後數值"
+                    }
+                  },
+                  "required": ["unit", "converted_value"],
+                  "example": {
+                    "unit": "3",
+                    "converted_value": 86400
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "轉換失敗",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error_msg": {
+                      "type": "string",
+                      "description": "錯誤訊息"
+                    }
+                  },
+                  "required": ["error_msg"],
+                  "example": {
+                    "error_msg": "Invalid input data"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  }
+}
