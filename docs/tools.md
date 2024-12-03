@@ -46,7 +46,7 @@ API文件參考如下:
 點選 `+新增工具`，並輸入以下內容：
    - **名稱**：工具名稱，可以自行填寫
    - **金鑰**：`{token: eyJ0eXAiOiJK...}`
-   - **內容**：支援json，url，yaml，[下載 JSON 配置文件](.\example_data\openapi_tool_example.json)
+   - **內容**：支援json，url，yaml，[下載 JSON 配置文件](./example_data/openapi_tool_example.json)
    - 選紅色框的列表，按送出。
    - 儲存
     ![本地圖片](./images/777.png "本地圖片示例")

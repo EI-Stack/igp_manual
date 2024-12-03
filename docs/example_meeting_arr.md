@@ -1,10 +1,10 @@
-# 會議安排團隊
-**會議安排團隊的主要目的是幫助辦公室有效地預約會議，節省時間，並減少線下協商場地的需求。透過自動化的流程，團隊能夠快速找到合適的會議時間和地點，提升工作效率。
+## 會議室安排團隊
+**會議室安排團隊的主要目的是幫助辦公室有效地預約會議，節省時間，並減少線下協商場地的需求。透過自動化的流程，團隊能夠快速找到合適的會議時間和地點，提升工作效率。**
 
-「User_available_time_check Agent」會使用api tools-/user_info，查詢使用者提到的人員的時間表。「meeting_room_available_time_check Agent」會使用api tools-/room_info，查詢使用者提到的時間區間的會議室狀況。「meeting_arrangement Agent」，當收到人員的calendar安排時間，找到空閒的時間(沒有標示在calendar上的時段)；針對使用者空閒的時間，確認會議室的預約資料是否有空；提供三個時段及對應的會議室，符合:所有人員時間表有空閒且會議室有空的時段。**
+**「User_available_time_check Agent」會使用api tools-/user_info，查詢使用者提到的人員的時間表。「meeting_room_available_time_check Agent」會使用api tools-/room_info，查詢使用者提到的時間區間的會議室狀況。「meeting_arrangement Agent」，當收到人員的calendar安排時間，找到空閒的時間(沒有標示在calendar上的時段)；針對使用者空閒的時間，確認會議室的預約資料是否有空；提供三個時段及對應的會議室，符合:所有人員時間表有空閒且會議室有空的時段。**
 
-此Agents掛載一個行事曆查詢的API工具，文件參考如下:
-[OpenAPI JSON 文件](https://fake-meeting-room.datafabric.iii-ei-stack.com/openapi.json)
+**此Agents掛載一個行事曆查詢的API工具，文件參考如下:
+[OpenAPI JSON 文件](https://fake-meeting-room.datafabric.iii-ei-stack.com/openapi.json)**
 
 
 
