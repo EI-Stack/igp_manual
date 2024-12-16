@@ -30,7 +30,7 @@ files=[
   ('file',('會議記錄.mp3',open('會議記錄.mp3','rb'),'audio/mpeg'))
 ]
 headers = {
-  'API-KEY': 'xxxxxxx'  
+  'X-API-KEY': 'xxxxxxx'  
 }
 
 response = requests.request("POST", url, headers=headers, data=payload, files=files)
@@ -45,4 +45,4 @@ print(response.text)
 | **session**   | 同一次對話的 `uuid`，類型為 `str`，非必填。                                                    |
 | **text**      | 要求服務執行的內容。如果 `file` 中有資料，可以不用填寫。例如：「請幫我整理會議記錄」。              |
 | **file**      | 要請服務處理的檔案，目前支援格式：`mp3`、`pdf`、`jpg`、`png`。                                    |
-| **API-KEY**   | 需向 AgentFabric 管理員申請 ID。                           
+| **X-API-KEY**   | 需向 AgentFabric 管理員申請 ID。                           
