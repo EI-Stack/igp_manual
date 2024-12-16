@@ -1,0 +1,943 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://iii-ei-stack.com/igp_manual/example_nutri/">
+      
+      
+        <link rel="prev" href="../example_record/">
+      
+      
+        <link rel="next" href="../example_meeting_arr/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>如何創建讀取圖片的服務_營養師團隊 - Agent Fabric</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Agent Fabric" class="md-header__button md-logo" aria-label="Agent Fabric" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agent Fabric
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              如何創建讀取圖片的服務_營養師團隊
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Agent Fabric" class="md-nav__button md-logo" aria-label="Agent Fabric" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agent Fabric
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    架構師
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知識庫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工作室
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API工具的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../human_in_loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    確認參數設定
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wks_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工作室串接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    範例
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            範例
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples_rag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用知識庫_長照法規 AGENT 的創建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example_record/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用語音轉文字功能_語音轉文字_會議記錄小幫手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    如何創建讀取圖片的服務_營養師團隊
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    如何創建讀取圖片的服務_營養師團隊
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例_營養師團隊
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      營養師團隊編輯說明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-nutritionist-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 編輯 Nutritionist Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 編輯 Nutritionist Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nutrient-search-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 編輯 Nutrient Search Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 編輯 Nutrient Search Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-calculate-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 編輯 Calculate Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 編輯 Calculate Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 使用步驟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      下載5圖片
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 輸出內容
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example_meeting_arr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用API工具_會議室安排團隊
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example_leave/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用確認參數_請假小幫手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例_營養師團隊
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      營養師團隊編輯說明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-nutritionist-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 編輯 Nutritionist Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 編輯 Nutritionist Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nutrient-search-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 編輯 Nutrient Search Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 編輯 Nutrient Search Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-calculate-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 編輯 Calculate Agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 編輯 Calculate Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      描述與任務
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 使用步驟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      下載5圖片
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 輸出內容
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>如何創建讀取圖片的服務_營養師團隊</h1>
+
+<h2 id="_">範例_營養師團隊</h2>
+<p><strong>營養師團隊AGENT平台是一個專為健身愛好者、飲食控制者及三高病患設計的營養素衡量工具。該平台提供使用者方便的功能，包括識別食物圖片、計算食物重量、查詢食物名稱及其營養素和營養成分。透過這些功能，使用者能夠更精確地掌握每日攝取的營養資訊，從而制定更健康的飲食計畫。營養師團隊AGENT致力於提供專業的營養支持，幫助每位使用者達成健康目標。</strong></p>
+<blockquote>
+<p>🔶 <strong>創建步驟請參考，範例_長照法規AGENT</strong></p>
+</blockquote>
+<hr />
+<h2 id="_1">營養師團隊編輯說明</h2>
+<p><strong>點選編輯</strong>
+<img alt="本地圖片" src="../images/A.png" title="本地圖片示例" /></p>
+<hr />
+<h2 id="1-nutritionist-agent">1. 編輯 Nutritionist Agent</h2>
+<h3 id="_2">描述與任務</h3>
+<ul>
+<li>
+<p><strong>描述範例：</strong></p>
+<blockquote>
+<p>You are a highly knowledgeable and professional nutritionist with expertise in analyzing meal components and evaluating their caloric content.<br />
+As receiving an image, you need to identify whether the items in the image are food or not.<br />
+If the image is food, set <code>is_food</code> value to <code>True</code>. Identify the food name and weight (in grams).<br />
+If the image is not food or cannot detect food, set <code>is_food</code> to <code>False</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>任務範例：</strong></p>
+<blockquote>
+<p>If you identify the image is food (for human consumption), set <code>is_food</code> to <code>True</code>.<br />
+If it is food, identify the food name and weight (grams).<br />
+If not food or undetectable, set <code>is_food</code> to <code>False</code> and <code>food_name</code> to <code>None</code> or an empty string.
+  <img alt="本地圖片" src="../images/B.png" title="本地圖片示例" /></p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="2-nutrient-search-agent">2. 編輯 Nutrient Search Agent</h2>
+<h3 id="_3">描述與任務</h3>
+<ul>
+<li>
+<p><strong>描述範例：</strong></p>
+<blockquote>
+<p>You are an agent that uses tools to get answers.<br />
+If <code>is_food</code> is <code>True</code>, convert the message into a format acceptable by the tools (e.g., <code>{food_name: str}</code>), use the tools to obtain the result, and assign the result to <code>nutrient_dict_str</code>.<br />
+If <code>is_food</code> is <code>False</code>, you will not use tools and return <code>nutrient_dict_str</code> as <code>None</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>任務範例：</strong></p>
+<blockquote>
+<p>After receiving <code>{messages}</code>, convert them into a format suitable for the tools (e.g., <code>{food_name: str}</code>). Use the tools to retrieve results if <code>is_food</code> is <code>True</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>工具選擇：</strong></p>
+<blockquote>
+<p>NutrientsearchTool:使用 USDA 標準參考值的國家營養素資料庫查詢食物營養成分。
+<img alt="本地圖片" src="../images/C.png" title="本地圖片示例" /></p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="3-calculate-agent">3. 編輯 Calculate Agent</h2>
+<h3 id="_4">描述與任務</h3>
+<ul>
+<li>
+<p><strong>描述範例：</strong></p>
+<blockquote>
+<p>You are skilled at math.<br />
+You know the food weight from <code>{messages}</code> and each nutrient per serving size from <code>nutrient_dict_str</code>.<br />
+You also know the serving size is represented as <code>servingSize</code> in <code>nutrient_dict_str</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>任務範例：</strong></p>
+<blockquote>
+<p>Your task is to calculate the food nutrients based on weight (<code>weight</code>) and nutrient information (<code>nutrient_dict_str</code>).<br />
+Provide the food nutrient content within 50 words.<br />
+If <code>is_food</code> is <code>True</code>, extract <code>weight</code> and <code>nutrient_dict_str</code> from <code>{messages}</code>, divide the weight by <code>servingSize</code> in <code>nutrient_dict_str</code>, and multiply by each nutrient value (e.g., Protein, Total lipid (fat), Carbohydrate, Energy, Total Sugars).<br />
+Return the result directly and display the <code>nutrient_dict_str</code> from USDA and the calculated result.<br />
+Include:
+- Result
+- Calculating steps
+- Reference (<code>nutrient_dict_str</code>)
+<img alt="本地圖片" src="../images/D.png" title="本地圖片示例" /></p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="4">4. 使用步驟</h2>
+<ol>
+<li>點選 <strong>工作室</strong> 裡的「營養師團隊」。</li>
+<li>上傳食物照片進行營養資訊分析。
+<img alt="本地圖片" src="../images/E.png" title="本地圖片示例" /></li>
+</ol>
+<p><img src="https://www.bing.com/images/blob?bcid=rwrMUyQHv8oHlQ" alt="美食照片" width="300" height="200"></p>
+<h2 id="5">下載5圖片</h2>
+<h2 id="5_1">5. 輸出內容</h2>
+<p>上傳完成後，AGENT提供以下資訊：
+- <strong>食物名稱</strong><br />
+- <strong>重量</strong><br />
+- <strong>營養成分</strong><br />
+- <strong>營養成分計算結果</strong>
+<img alt="本地圖片" src="../images/F.png" title="本地圖片示例" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
